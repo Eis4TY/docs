@@ -5,6 +5,12 @@ description: "Docker 与生产环境部署建议。"
 
 ## Docker 部署
 
+### 镜像地址
+
+- `ghcr.io/eis4ty/lingzhu-agent-bridge:latest`
+
+> 首次拉取需要登录 GitHub Container Registry（GHCR）。
+
 ### 构建镜像
 
 ```bash
@@ -22,6 +28,21 @@ docker run -p 3000:3000 \
 ```
 
 > 建议挂载 `bindings.json` 与 `settings.json` 以持久化配置。
+
+### 使用已发布镜像
+
+```bash
+docker login ghcr.io
+docker pull ghcr.io/eis4ty/lingzhu-agent-bridge:latest
+```
+
+```bash
+docker run -p 3000:3000 \
+  -v $(pwd)/bindings.json:/app/bindings.json \
+  -v $(pwd)/settings.json:/app/settings.json \
+  -v $(pwd)/logs.json:/app/logs.json \
+  ghcr.io/eis4ty/lingzhu-agent-bridge:latest
+```
 
 ## Node 生产部署
 

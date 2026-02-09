@@ -5,8 +5,8 @@
   "colors": {
     "primary": "#2563eb"
   },
-  "logo": "logo/light.svg",
-  "favicon": "favicon.svg",
+  "logo": "icon.png",
+  "favicon": "icon.png",
   "navigation": {
     "groups": [
       {
